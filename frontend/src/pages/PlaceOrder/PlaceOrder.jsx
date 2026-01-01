@@ -25,31 +25,100 @@ const PlaceOrder = () => {
     setData(data =>({...data,[name]:value}))
   }
 
-  const placeOrder = async (event) =>{
-    event.preventDefault();
-    let orderItems = [];
-    food_list.map((item, index)=>{
-      if(cartItems[item._id]>0){
-        let itemInfo = item;
-        itemInfo["quantity"] = cartItems[item._id];
-        orderItems.push(itemInfo);
+//   const placeOrder = async (event) =>{
+//     event.preventDefault();
+//     let orderItems = [];
+//     food_list.map((item, index)=>{
+//       if(cartItems[item._id]>0){
+//         let itemInfo = item;
+//         itemInfo["quantity"] = cartItems[item._id];
+//         orderItems.push(itemInfo);
+//       }
+//     })
+//     let orderData = {
+//       address:data,
+//       items:orderItems,
+//       amount:getTotalCartAmount()+2,
+//     }
+ 
+//     let response = await axios.post(url+'/api/order/place', orderData,{
+//   headers: {
+//     Authorization: `Bearer ${token}`,
+//   },
+// })
+//     if(response.data.success){
+//       const {session_url} = response.data;
+//       // window.location.replace(session_url);
+//     }
+//     else{
+//       alert('order failed')
+//     }
+//   }
+
+const placeOrder = async (event) => {
+  event.preventDefault();
+
+  let orderItems = [];
+  food_list.forEach((item) => {
+    if (cartItems[item._id] > 0) {
+      orderItems.push({
+        ...item,
+        quantity: cartItems[item._id],
+      });
+    }
+  });
+
+  const orderData = {
+    items: orderItems,
+    amount: getTotalCartAmount() + 2,
+    address: data,
+  };
+
+  try {
+    const res = await axios.post(
+      url + "/api/order/place",
+      orderData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       }
-    })
-    let orderData = {
-      address:data,
-      items:orderItems,
-      amount:getTotalCartAmount()+2,
+    );
+
+    if (!res.data.success) {
+      alert("Order failed");
+      return;
     }
 
-    let response = await axios.post(url+'/api/order/place', orderData,{headers:{token}})
-    if(response.data.success){
-      const {session_url} = response.data;
-      window.location.replace(session_url);
-    }
-    else{
-      alert('Error')
-    }
+    // ✅ Razorpay popup
+    const options = {
+      key: res.data.key,
+      amount: res.data.amount,
+      currency: "INR",
+      name: "Food Delivery",
+      description: "Order Payment",
+      order_id: res.data.razorpayOrderId,
+      handler: async function (response) {
+        await axios.post(url + "/api/order/verify", {
+          orderId: res.data.orderId,
+          razorpay_payment_id: response.razorpay_payment_id,
+        });
+
+        navigate("/myorders");
+      },
+      theme: {
+        color: "#ff4c24",
+      },
+    };
+
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+
+  } catch (err) {
+    console.error(err);
+    alert("Payment failed");
   }
+};
 
   const navigate = useNavigate();
 
