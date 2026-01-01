@@ -123,24 +123,34 @@ Use the admin panel to manage orders, menu items.
 ##  Screenshots
 # 🏠 Home : 
 <img width='100%' src='./Screenshots/hero.jfif' />
+
 # 🔐 Login : 
-![2](https://github.com/DulanjaliSenarathna/mern-food-delivery-app/assets/59603716/0cb56d94-a715-48bd-9a7d-05c876a05b2c)
+<img width='100%' src='./Screenshots/login.jfif' />
+
 # 🔐 Signup : 
-![3](https://github.com/DulanjaliSenarathna/mern-food-delivery-app/assets/59603716/f5dd216a-dc8d-4042-9a96-4884cdb17aef)
+<img width='100%' src='./Screenshots/signup.jfif' />
+
 # 🍔 Menu :
-![Capture2](https://github.com/DulanjaliSenarathna/mern-food-delivery-app/assets/59603716/22fc6a58-b713-4ab7-babb-cff5844e7c55)
+<img width='100%' src='./Screenshots/menu.jfif' />
+
 # 🍱 Menu Food :
-![Capture3](https://github.com/DulanjaliSenarathna/mern-food-delivery-app/assets/59603716/0f7fe1ab-8c29-4fa2-bdb2-7212994cdf80)
+<img width='100%' src='./Screenshots/menu food.jfif' />
+
 # ℹ️ App Download : 
-![Capture4](https://github.com/DulanjaliSenarathna/mern-food-delivery-app/assets/59603716/f41881c6-e148-4215-9953-458bbe602007)
+<img width='100%' src='./Screenshots/app download.jfif' />
+
 # 🍱 Menu Food :
-![Capture5](https://github.com/DulanjaliSenarathna/mern-food-delivery-app/assets/59603716/34e366fa-8ee5-4f77-a5e0-d5d4ea294672)
+<img width='100%' src='./Screenshots/menu food 1.jfif' />
+
 # 🛒 Cart : 
-![Capture6](https://github.com/DulanjaliSenarathna/mern-food-delivery-app/assets/59603716/1894f642-ea89-42de-ad74-de173c6c42aa)
+<img width='100%' src='./Screenshots/cart.jfif' />
+
 # 📞 Contact :
-![Capture7](https://github.com/DulanjaliSenarathna/mern-food-delivery-app/assets/59603716/1a94b8aa-aa4e-4991-9d45-f6548f793b47)
+<img width='100%' src='./Screenshots/contact.jfif' />
+
 # ❤️ Payment :
-![Capture8](https://github.com/DulanjaliSenarathna/mern-food-delivery-app/assets/59603716/c85e4c11-7ebf-4e45-8678-4000abde835d)
+<img width='100%' src='./Screenshots/payment.jfif' />
+
 
 ##  API Documentation
 The API endpoints for the backend can be documented using tools like Postman or Swagger. Include endpoints for user authentication, menu items, orders, and more.
