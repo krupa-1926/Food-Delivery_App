@@ -149,7 +149,7 @@ Use the admin panel to manage orders, menu items.
 <img width='100%' src='./Screenshots/contact.jfif' />
 
 # ❤️ Payment :
-<img width='100%' src='./Screenshots/payment.jfif' />
+<img width='100%' src='./Screenshots/payment.jfikof' />
 
 
 ##  API Documentation
