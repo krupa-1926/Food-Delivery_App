@@ -6,6 +6,8 @@ const userSchema = new mongoose.Schema({
     password:{type:String, required:true},
     cartData:{type:Object, default:{}}
 },{minimize:false})
+// By default, Mongoose removes empty objects from documents so minimize: false means: Even if cartData is {}, it will be saved in MongoDB
+// Avoid undefined issues in frontend
 
 const userModel = mongoose.model.user || mongoose.model("user", userSchema);
 
